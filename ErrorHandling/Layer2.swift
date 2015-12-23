@@ -18,10 +18,26 @@ class Layer2: NSObject
             //URL FORMATION
             let url = NSURL(string: "https:www.google.com")
             
+            try Layer3.layer3Func(url!, completionHandler: { (responseClosure) -> Void in
+                
+                do
+                {
+                    let result = try responseClosure()
+                    
+                    completionHandler2(responseStringFromL2: result)
+                }
+                catch
+                {
+                    print("Error caught in Layer 2.... Need to pass this to Layer 1 !!!! ")
+                    //throw MyError.e1
+                }
+                
+            })
+            
             try Layer3.layer3Func(url!, completionHandler: { (responseStringFromL3) -> Void in
                 
-                completionHandler2(responseStringFromL2: responseStringFromL3)
-            
+                
+                
             })
         }
         

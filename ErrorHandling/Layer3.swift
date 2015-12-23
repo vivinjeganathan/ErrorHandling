@@ -26,24 +26,24 @@ class Layer3: NSObject
         return a+b
     }
     
-    
-    static func layer3Func(url : NSURL, completionHandler : (responseStringFromL3 : String) -> Void) throws -> Void
+    static func layer3Func(url : NSURL, completionHandler :(responseClosure : () throws -> String ) -> Void) throws -> Void
     {
         let session = NSURLSession.sharedSession()
         
         let task = session.dataTaskWithURL(url) { (data, urlResponse, var error) -> Void in
             
             //ASSUMING ERROR OCCURS IN WEB SERVICE CALL
-            error = NSError(domain: "domain", code: 1, userInfo: nil)
+            //error = NSError(domain: "domain", code: 1, userInfo: nil)
             
             if(error == nil)
             {
-                completionHandler(responseStringFromL3: "abc")
+                completionHandler(responseClosure: {return "abc"})
             }
             else
             {
-                // NEED TO PROPAGATE ERROR TO THE VIEW CONTROLLER WHICH IS THREE LAYERS DEEP 
-                // ???
+                // NEED TO PROPAGATE ERROR TO THE VIEW CONTROLLER WHICH IS THREE LAYERS DEEP
+                completionHandler(responseClosure: {throw MyError.e1})
+                
             }
         }
         
