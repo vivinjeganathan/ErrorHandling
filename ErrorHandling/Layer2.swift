@@ -11,36 +11,30 @@ import UIKit
 class Layer2: NSObject
 {
     
-    static func layer2Func(completionHandler2:(responseStringFromL2: String) -> Void) throws -> Void
+    static func layer2Func(completionHandler2:(responseClosure2:() throws -> String) -> Void) throws -> Void
     {
-        do
-        {
-            //URL FORMATION
-            let url = NSURL(string: "https:www.google.com")
-            
-            try Layer3.layer3Func(url!, completionHandler: { (responseClosure) -> Void in
-                
-                do
-                {
-                    let result = try responseClosure()
-                    
-                    completionHandler2(responseStringFromL2: result)
-                }
-                catch
-                {
-                    print("Error caught in Layer 2.... Need to pass this to Layer 1 !!!! ")
-                    //throw MyError.e1
-                }
-                
-            })
-            
-            try Layer3.layer3Func(url!, completionHandler: { (responseStringFromL3) -> Void in
-                
-                
-                
-            })
-        }
         
+        //URL FORMATION
+        let url = NSURL(string: "https:www.google.com")
+        
+        Layer3.layer3Func(url!, completionHandler: { (responseClosure) -> Void in
+            
+            do
+            {
+                let result = try responseClosure()
+                completionHandler2(responseClosure2:{return result})
+            }
+            catch
+            {
+                print("Error received in Layer 2")
+                completionHandler2(responseClosure2:{throw MyError.e1})
+            }
+         }) 
+    }
+    
+    static func sample() throws -> Void
+    {
+        throw MyError.e1
     }
     
 }

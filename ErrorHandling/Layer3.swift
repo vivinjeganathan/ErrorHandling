@@ -26,27 +26,51 @@ class Layer3: NSObject
         return a+b
     }
     
-    static func layer3Func(url : NSURL, completionHandler :(responseClosure : () throws -> String ) -> Void) throws -> Void
+    static func layer3Func(url : NSURL, completionHandler :(responseClosure : () throws -> String ) -> Void) -> Void
     {
         let session = NSURLSession.sharedSession()
         
         let task = session.dataTaskWithURL(url) { (data, urlResponse, var error) -> Void in
             
             //ASSUMING ERROR OCCURS IN WEB SERVICE CALL
-            //error = NSError(domain: "domain", code: 1, userInfo: nil)
+            error = NSError(domain: "domain", code: 1, userInfo: nil)
             
             if(error == nil)
             {
-                completionHandler(responseClosure: {return "abc"})
+               completionHandler(responseClosure: {return "abc"})
             }
             else
             {
                 // NEED TO PROPAGATE ERROR TO THE VIEW CONTROLLER WHICH IS THREE LAYERS DEEP
+                print("Error received in Layer 3")
                 completionHandler(responseClosure: {throw MyError.e1})
-                
             }
         }
         
         task.resume()
     }
+//    
+//    static func layer3Func(url : NSURL, completionHandler :(responseString: String) -> Void) throws -> Void
+//    {
+//        let session = NSURLSession.sharedSession()
+//        
+//        let task = session.dataTaskWithURL(url) { (data, urlResponse, var error) -> Void in
+//            
+//            //ASSUMING ERROR OCCURS IN WEB SERVICE CALL
+//            error = NSError(domain: "domain", code: 1, userInfo: nil)
+//            
+//            if(error == nil)
+//            {
+//                completionHandler(responseString : "asd")
+//            }
+//            else
+//            {
+//                // NEED TO PROPAGATE ERROR TO THE VIEW CONTROLLER WHICH IS THREE LAYERS DEEP
+//                throw MyError.e1
+//                
+//            }
+//        }
+//        
+//        task.resume()
+//    }
 }

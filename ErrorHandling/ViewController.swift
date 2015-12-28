@@ -13,13 +13,26 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-         try! Layer1.layer1Func("INPUT", completionHandler: { (responseStringFromLayer1) -> Void in
+        do
+        {
+            try Layer1.layer1Func("INPUT", completionHandler: { (responseClosure1) -> Void in
+                
+                do
+                {
+                    let result = try responseClosure1();
+                    print(result)
+                }
+                catch
+                {
+                    print("Error in ViewController")
+                }
+                
+            })
+        }
+        catch
+        {
             
-            print(responseStringFromLayer1)
-            
-         })
-
-        
+        }        
     }
 
     override func didReceiveMemoryWarning() {
