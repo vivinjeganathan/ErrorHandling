@@ -15,7 +15,7 @@ class ViewController: UIViewController {
         
         do
         {
-            try Layer1.layer1Func("INPUT", completionHandler: { (responseClosure1) -> Void in
+            try Layer1.layer1Func1("INPUT", completionHandler: { (responseClosure1) -> Void in
                 
                 do
                 {
@@ -28,6 +28,7 @@ class ViewController: UIViewController {
                 }
                 
             })
+
         }
         catch
         {

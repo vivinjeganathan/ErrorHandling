@@ -11,7 +11,7 @@ import UIKit
 class Layer2: NSObject
 {
     
-    static func layer2Func(completionHandler2:(responseClosure2:() throws -> String) -> Void) throws -> Void
+    static func layer2Func1(completionHandler2:(responseClosure2:() throws -> String) -> Void) throws -> Void
     {
         
         //URL FORMATION
@@ -30,6 +30,28 @@ class Layer2: NSObject
                 completionHandler2(responseClosure2:{throw MyError.e1})
             }
          }) 
+    }
+    
+    
+    static func layer2Func2(completionHandler2:(responseClosure2:() throws -> String) -> Void) throws -> Void
+    {
+        
+        //URL FORMATION
+        let url = NSURL(string: "https:www.google.com")
+        
+        Layer3.layer3Func(url!, completionHandler: { (responseClosure) -> Void in
+            
+            do
+            {
+                let result = try responseClosure()
+                completionHandler2(responseClosure2:{return result})
+            }
+            catch
+            {
+                print("Error received in Layer 2")
+                completionHandler2(responseClosure2:{throw MyError.e1})
+            }
+        })
     }
     
     static func sample() throws -> Void

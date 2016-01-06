@@ -10,7 +10,19 @@ import UIKit
 
 class Layer1_1: NSObject
 {
-    static func parseMyResponse(responseString: String)
+    static func parseMyResponse1(responseString: String)
+    {
+        if(responseString == "")
+        {
+            //CREATE ERROR OBJECT AND PASS TO THE PREVIOUS LAYER
+        }
+        else
+        {
+            //PARSE
+        }
+    }
+    
+    static func parseMyResponse2(responseString: String)
     {
         if(responseString == "")
         {
