@@ -13,27 +13,36 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        do
-        {
-            try Layer1.layer1Func1("INPUT", completionHandler: { (responseClosure1) -> Void in
-                
-                do
-                {
-                    let result = try responseClosure1();
-                    print(result)
-                }
-                catch
-                {
-                    print("Error in ViewController")
-                }
-                
-            })
-
-        }
-        catch
-        {
-            
-        }        
+//        do
+//        {
+//            try Layer1.layer1Func1("INPUT", completionHandler: { (responseClosure1) -> Void in
+//                
+//                do
+//                {
+//                    let result = try responseClosure1();
+//                    print(result)
+//                }
+//                catch
+//                {
+//                    print("Error in ViewController")
+//                }
+//                
+//            })
+//
+//        }
+//        catch
+//        {
+//            
+//        }
+        
+        let sampleDomain = SampleDomain()
+        
+        sampleDomain.name = "vivin"
+        
+        var mutableObject : AnyObject = sampleDomain.name
+        let propertyName = SampleDomain().propertyNameFor(&mutableObject)
+        
+        print(propertyName)
     }
 
     override func didReceiveMemoryWarning() {

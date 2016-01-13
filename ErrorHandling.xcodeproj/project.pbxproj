@@ -16,6 +16,7 @@
 		07BCB2031C29FFE6002B5665 /* Layer2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BCB2021C29FFE6002B5665 /* Layer2.swift */; };
 		07BCB2051C2A007E002B5665 /* Layer3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BCB2041C2A007E002B5665 /* Layer3.swift */; };
 		07BCB2071C2B07BD002B5665 /* Layer1-1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BCB2061C2B07BD002B5665 /* Layer1-1.swift */; };
+		07BCE3AA1C45F85D00891294 /* SampleDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07BCE3A91C45F85C00891294 /* SampleDomain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		07BCB2021C29FFE6002B5665 /* Layer2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layer2.swift; sourceTree = "<group>"; };
 		07BCB2041C2A007E002B5665 /* Layer3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layer3.swift; sourceTree = "<group>"; };
 		07BCB2061C2B07BD002B5665 /* Layer1-1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Layer1-1.swift"; sourceTree = "<group>"; };
+		07BCE3A91C45F85C00891294 /* SampleDomain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleDomain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				07BCB1EF1C29FD18002B5665 /* Assets.xcassets */,
 				07BCB1F11C29FD18002B5665 /* LaunchScreen.storyboard */,
 				07BCB1F41C29FD18002B5665 /* Info.plist */,
+				07BCE3A91C45F85C00891294 /* SampleDomain.swift */,
 			);
 			path = ErrorHandling;
 			sourceTree = "<group>";
@@ -171,6 +174,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07BCE3AA1C45F85D00891294 /* SampleDomain.swift in Sources */,
 				07BCB1EB1C29FD18002B5665 /* ViewController.swift in Sources */,
 				07BCB2051C2A007E002B5665 /* Layer3.swift in Sources */,
 				07BCB2011C29FF74002B5665 /* Layer1.swift in Sources */,
@@ -324,6 +328,7 @@
 				07BCB1F91C29FD18002B5665 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
